@@ -8,11 +8,14 @@ import (
 	"testing"
 )
 
+func HandlerMyAPI(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(`{"id": 1, "name": "PingkungA", "age": 33, "info": "dotnet dev/ blogger"}`))
+}
+
 func TestMakeHttp(t *testing.T) {
-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"id": 1, "name": "PingkungA", "age": 33, "info": "dotnet dev/ blogger"}`))
-	}))
+	server := httptest.NewServer(http.HandlerFunc(HandlerMyAPI))
+
 	want := &Response{
 		ID:   1,
 		Name: "PingkungA",
