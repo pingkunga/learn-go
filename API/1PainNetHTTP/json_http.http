@@ -1,0 +1,15 @@
+@StoreAPI_HostAddress = http://localhost:10170/
+
+### Get User
+GET {{StoreAPI_HostAddress}}/users
+Accept: application/json
+
+### Post User
+POST http://localhost:10170/users
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
