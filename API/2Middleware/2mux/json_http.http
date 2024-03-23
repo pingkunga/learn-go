@@ -1,0 +1,20 @@
+@HostAddress = http://localhost:10170
+
+### Get User
+GET {{HostAddress}}/users
+Accept: application/json
+
+### Post User
+POST {{HostAddress}}/users
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Health Check
+GET {{HostAddress}}/healthcheck
+Accept: application/json
+```
