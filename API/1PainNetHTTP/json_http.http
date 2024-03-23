@@ -1,11 +1,11 @@
-@StoreAPI_HostAddress = http://localhost:10170/
+@HostAddress = http://localhost:10170
 
 ### Get User
-GET {{StoreAPI_HostAddress}}/users
+GET {{HostAddress}}/users
 Accept: application/json
 
 ### Post User
-POST http://localhost:10170/users
+POST {{HostAddress}}/users
 Content-Type: application/json
 
 {
