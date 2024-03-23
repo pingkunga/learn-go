@@ -1,0 +1,83 @@
+@HostAddress = http://localhost:10170/api
+@BaseAddress = http://localhost:10170
+
+```
+### Authorization: Basic user:passwd
+
+### Get User (No Authorization)
+GET {{HostAddress}}/users
+Accept: application/json
+
+### Get User (Invalid Authorization)
+GET {{HostAddress}}/users
+Authorization: Basic YWRtaW46UEBzc3cwcmQ=
+Accept: application/json
+
+### Get User (Valid Authorization)
+GET {{HostAddress}}/users
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+### Get User By Id (Found)
+GET {{HostAddress}}/users/1
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+### Get User By Id (Not Found)
+GET {{HostAddress}}/users/100
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+
+### Post User (No Authorization)
+POST {{HostAddress}}/users
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Invalid Authorization)
+POST {{HostAddress}}/users
+Authorization: Basic YWRtaW46UEBzc3cwcmQ=
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Valid Authorization)
+POST {{HostAddress}}/users
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+    "name": "Fai",
+    "age": 33
+}
+
+### Put User (Valid Authorization)
+PUT {{HostAddress}}/users/3
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+    "userid": 3,
+    "name": "Fai",
+    "age": 29
+}
+
+### Delete User (Valid Authorization)
+DELETE {{HostAddress}}/users/4
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+
+### Health Check
+GET {{BaseAddress}}/healthcheck
+Accept: application/json
+```
