@@ -10,7 +10,9 @@
             "request": "launch",
             "mode": "auto",
             //"program": "${fileDirname}"
-            "program": "${workspaceFolder}/API/1PainNetHTTP/json_http.go"
+            // "program": "${workspaceFolder}/API/1PainNetHTTP/json_http.go"
+            "program": "${workspaceFolder}/API/4APIWithDB/2API/server.go",
+            "envFile": "${workspaceFolder}/dev.env",
         }
     ]
 }
