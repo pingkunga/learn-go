@@ -1,0 +1,54 @@
+@HostAddress = http://localhost:10170
+### Authorization: Basic user:passwd
+
+### Get User (No Authorization)
+GET {{HostAddress}}/users
+Accept: application/json
+
+### Get User (Invalid Authorization)
+GET {{HostAddress}}/users
+Authorization: Basic YWRtaW46UEBzc3cwcmQ=
+Accept: application/json
+
+### Get User (Valid Authorization)
+GET {{HostAddress}}/users
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
+
+
+### Post User (No Authorization)
+POST {{HostAddress}}/users
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Invalid Authorization)
+POST {{HostAddress}}/users
+Authorization: Basic YWRtaW46UEBzc3cwcmQ=
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Valid Authorization)
+POST {{HostAddress}}/users
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Health Check
+GET {{HostAddress}}/healthcheck
+Accept: application/json
+```
