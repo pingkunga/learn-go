@@ -1,0 +1,77 @@
+@HostAddress = http://localhost:10170/api
+@BaseAddress = http://localhost:10170
+
+@access_token = {{auth.response.body.token}}
+
+
+### GetJWTToken
+# @name auth
+POST {{HostAddress}}/auth
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="username"
+
+admin
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+admin
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Get User (No Authorization)
+GET {{HostAddress}}/users
+Accept: application/json
+
+### Get User (Valid Authorization)
+
+GET {{HostAddress}}/users
+Authorization: Bearer {{access_token}}
+Accept: application/json
+
+### Get User By Id (Found)
+GET {{HostAddress}}/users/1
+Authorization: Bearer {{access_token}}
+Accept: application/json
+
+### Get User By Id (Not Found)
+GET {{HostAddress}}/users/100
+Authorization: Bearer {{access_token}}
+Accept: application/json
+
+
+### Post User (No Authorization)
+POST {{HostAddress}}/users
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Invalid Authorization)
+POST {{HostAddress}}/users
+Authorization: Bearer 123
+Content-Type: application/json
+
+{
+    "userid": 2,
+    "name": "Fai",
+    "age": 33
+}
+
+### Post User (Valid Authorization)
+POST {{HostAddress}}/users
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+    "name": "Fai",
+    "age": 33
+}
+
+### Health Check
+GET {{BaseAddress}}/healthcheck
+Accept: application/json
+```
