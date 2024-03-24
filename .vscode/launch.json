@@ -11,7 +11,11 @@
             "mode": "auto",
             //"program": "${fileDirname}"
             // "program": "${workspaceFolder}/API/1PainNetHTTP/json_http.go"
-            "program": "${workspaceFolder}/API/4APIWithDB/2API/server.go",
+            //"program": "${workspaceFolder}/API/4APIWithDB/2API/server.go",
+            //"program": "${workspaceFolder}/API/4APIWithDB/2API/server_integration_test.go",
+            //"program": "${workspaceFolder}/API/5GracefulShutdown/2GracefulShutdown/API/server.go",
+            //"program": "${workspaceFolder}/API/7JWT/1PlainJWT/server.go",
+            "program": "${workspaceFolder}/API/7JWT/API/server.go",       
             "envFile": "${workspaceFolder}/dev.env",
         }
     ]
